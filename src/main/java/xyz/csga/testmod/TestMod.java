@@ -8,16 +8,8 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.block.material.Material;
-import net.minecraft.command.ICommand;
-import net.minecraft.command.ICommandSender;
-import net.minecraft.command.ServerCommandManager;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
 import xyz.csga.testmod.block.MyBlock;
 import xyz.csga.testmod.command.TestCommand;
 import xyz.csga.testmod.entity.Entity300;
@@ -25,9 +17,6 @@ import xyz.csga.testmod.item.EsuWand;
 import xyz.csga.testmod.item.Item300;
 import xyz.csga.testmod.item.MyItem;
 import xyz.csga.testmod.server.ServerProxy;
-
-import java.util.List;
-import java.util.logging.Logger;
 
 @Mod(modid = TestMod.MODID, version = TestMod.VERSION)
 public class TestMod {

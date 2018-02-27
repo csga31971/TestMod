@@ -3,7 +3,6 @@ package xyz.csga.testmod.command;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.World;
 
 import java.util.logging.Logger;
 
@@ -33,7 +32,6 @@ public class TestCommand extends CommandBase{
         for (int i = 0; i < args.length; i++) {
             log.info(args[i]);
         }
-        World world = sender.getEntityWorld();
         MinecraftServer.getServer().getCommandManager().executeCommand(sender,
                 "/tellraw @p [\"\"," +
                         "{\"text\":\"food \",\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/give @p cooked_beef 64\"}}," +

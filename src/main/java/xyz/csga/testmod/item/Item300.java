@@ -6,7 +6,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import xyz.csga.testmod.TestMod;
-import xyz.csga.testmod.entity.Entity300;
 
 public class Item300 extends Item{
 
@@ -30,8 +29,8 @@ public class Item300 extends Item{
     {
         if (!entityPlayer.capabilities.isCreativeMode)
             --itemStack.stackSize;
-        world.playSoundAtEntity(entityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-        entityPlayer.addExperience(5);
+        world.playSoundAtEntity(entityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));//MD不知道去哪查声音文件名
+        entityPlayer.addExperience(5);//加经验，作为对比烤一块牛肉给0.35经验，挖一块煤给0-2经验
         return itemStack;
     }
 
