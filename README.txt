@@ -1,3 +1,7 @@
+This mod is for Minecraft 1.7.10 with Forge 10.13.4.1614.
+
+Just for testing.
+
 -------------------------------------------
 Source installation information for modders
 -------------------------------------------
