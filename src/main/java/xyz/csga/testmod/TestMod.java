@@ -5,18 +5,29 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.material.Material;
+import net.minecraft.command.ICommand;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.ServerCommandManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import xyz.csga.testmod.block.MyBlock;
+import xyz.csga.testmod.command.TestCommand;
 import xyz.csga.testmod.entity.Entity300;
 import xyz.csga.testmod.item.EsuWand;
 import xyz.csga.testmod.item.Item300;
 import xyz.csga.testmod.item.MyItem;
 import xyz.csga.testmod.server.ServerProxy;
+
+import java.util.List;
+import java.util.logging.Logger;
 
 @Mod(modid = TestMod.MODID, version = TestMod.VERSION)
 public class TestMod {
@@ -49,7 +60,15 @@ public class TestMod {
         GameRegistry.addRecipe(new ItemStack(Items.gold_nugget,4), new Object[]{"###","###","###",'#', myBlock});
         GameRegistry.addRecipe(new ItemStack(esuWand,1), new Object[]{" **"," #*","#  ",'#',myBlock,'*',item300});
         GameRegistry.addSmelting(myBlock, new ItemStack(myItem,4), 1);
+    }
 
+    @Mod.EventHandler
+    public void start(FMLServerStartingEvent event)
+    {
+        //看了下有些mod里是这样写的
+        //ServerCommandManager commandManager = (ServerCommandManager)MinecraftServer.getServer().getCommandManager();
+        //commandManager.registerCommand(new TestCommand());
+        event.registerServerCommand(new TestCommand());
     }
 
 }
