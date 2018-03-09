@@ -5,6 +5,9 @@
       <module name="ForgeLatest_api" target="1.6" />
       <module name="ForgeLatest_main" target="1.6" />
       <module name="ForgeLatest_test" target="1.6" />
+      <module name="TestMod_api" target="1.6" />
+      <module name="TestMod_main" target="1.6" />
+      <module name="TestMod_test" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

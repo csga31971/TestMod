@@ -26,9 +26,16 @@ public class Entity300 extends EntityThrowable{
 
     @Override
     protected void onImpact(MovingObjectPosition movingObjectPosition) {
+
         if(!this.worldObj.isRemote){
+            if(movingObjectPosition.entityHit != null){
+                this.worldObj.createExplosion(null,movingObjectPosition.entityHit.posX,movingObjectPosition.entityHit.posY,movingObjectPosition.entityHit.posZ,5f,false);
+                this.setDead();
+            }
             this.worldObj.createExplosion(null,movingObjectPosition.blockX,movingObjectPosition.blockY,movingObjectPosition.blockZ,5f,false);
+            this.setDead();
         }
         this.setDead();
     }
+
 }

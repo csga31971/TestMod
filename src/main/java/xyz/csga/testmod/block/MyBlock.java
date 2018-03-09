@@ -16,7 +16,8 @@ public class MyBlock extends Block {
         setBlockName("myblock");
         setBlockTextureName(TestMod.MODID + ":osu");//对应的文件：/resources/assets/[标识id，一般用modid]/blocks/[冒号后面的字符串].png
         setHarvestLevel("pickaxe",3);//钻石镐
-        setHardness(3f);//一开始设成了2000挖了一万年也没挖动
+        setHardness(1f);//一开始设成了2000挖了一万年也没挖动
+        setResistance(6000f);
     }
 
     public static MyBlock instance(){
@@ -27,13 +28,13 @@ public class MyBlock extends Block {
 
     @Override
     public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int meta) {
-        if(world.rand.nextFloat() <= 0.1){
-            world.createExplosion(null,x,y,z,1.0f,true);//参数：entity,x,y,z,strength,smoke
-        }
-        if(world.rand.nextFloat() <= 0.05){
-            this.dropBlockAsItemWithChance(world,x,y,z,meta,1,0);//参数：World,x,y,z,metadata,chance,fortune
-            this.dropBlockAsItem(world,x,y,z,new ItemStack(Item300.instance(),1));
+        if(!world.isRemote) {
+            if (world.rand.nextFloat() <= 0.1) {
+                world.createExplosion(null, x, y, z, 1.5f, true);//参数：entity,x,y,z,strength,smoke
+            }
+            if (world.rand.nextFloat() <= 0.05) {
+                dropBlockAsItem(world, x, y, z, new ItemStack(new Item300(), 1));
+            }
         }
     }
-
 }
