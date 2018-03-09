@@ -2,6 +2,10 @@ This mod is for Minecraft 1.7.10 with Forge 10.13.4.1614.
 
 Just for testing.
 
+Type "/util" in game for quick assistance!
+
+Try to craft EsuWand !
+
 -------------------------------------------
 Source installation information for modders
 -------------------------------------------
